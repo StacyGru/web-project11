@@ -1,60 +1,49 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit{
-  title = 'project11';
-  myNumber = 10;
-  flag = true;
-  buttonEnabled = false;
- 
-  blockX = 0;
-  blockY = 0;
 
-  inputValue = 'text';
+export class AppComponent {
+  title = 'profect11';
 
-  @ViewChild('someInput') someInputName: ElementRef | undefined;
+  // написать алгоритм который вызовет конструктор класса (со случайной генерацией статуса)
+  // рекомендуется создавать модели данных
 
-  someArray: string[] = ['первый', 'второй', 'третий'];
+  // interface myDet
+  // {
+  //   id: number;
+  //   name: string;
+  //   status: boolean;
+  // }
+  
+  // cardsArray : any;
 
-  fontSize = 15;
+  // createArray(number = 10)
+  // {
+  //   for(var i = 1; i < number; i++)
+  //   {
+  //     // let item : myDet;
+  //     // this.item.id = i;
+  //     // this.item.name = 'Название';
+  //     // this.status = this.getBoolean();
+  //     this.cardsArray.push(i, 'Название', this.getBoolean());
+  //   }
+  // }
 
-  constructor()
+  // getBoolean()
+  // {
+  //   let num = Math.random() * (1 - 0) + 0;
+  //   if (num == 1)
+  //     return true;
+  //   else
+  //     return false;
+  // }
+
+  class Cards
   {
-    setTimeout(() =>
-    {
-      this.buttonEnabled = true;
-      this.fontSize = 20;
-    }, 1500);
-  }
-
-  ngOnInit()
-  {
-    console.log(this.someInputName);
-  }
-
-  ngAfterViewInit()
-  {
-    console.log(this.someInputName);
-  }
-
-  hello()
-  {
-    return 'Hello world';
-  }
-
-  getCoords(e: MouseEvent)
-  {
-    this.blockX = e.offsetX;
-    this.blockY = e.offsetY;
-  }
-
-  getData(elm: HTMLInputElement)
-  {
-    // console.log(elm);
-    console.log(this.someInputName?.nativeElement.value);
+    
   }
 }
