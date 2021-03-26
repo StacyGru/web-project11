@@ -1,17 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
+<div class="container text-center">
 
-      <div class="card" style="width: 18rem;" 
-        *ngFor="let item of cardsArray;">
-
+    <div class="row mb-4 justify-content-center">
+      <div *ngFor="let item of cardsArray; let i = index;"
+      class="card text-white mb-3 mt-3 ml-1 mr-1"
+      [ngClass]="{'bg-success': item.status == true,
+      'bg-danger': item.status == false}"
+      style="width: 15rem;">
+        <div class="card-header">Идентификатор: {{ item.id }}</div>
         <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
-          <button class="btn btn-primary">Удалить</button>
-          
+          <p>{{ item.name }}</p>
+          <button class="btn border-light "
+          [ngClass]="{'btn-success': item.status == true,
+          'btn-danger': item.status == false}"
+          (click)="deleteCard(i)">
+          Удалить</button>
         </div>
       </div>
-
     </div>
+    
+    <button type="button" class="btn btn-warning"
+    (click)="addCard()"
+    >Добавить</button>
+
   </div>
-</div>

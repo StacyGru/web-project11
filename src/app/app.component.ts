@@ -28,18 +28,24 @@ export class AppComponent
     let newCard = new Card();
     newCard.id = i;
     newCard.name = 'Карточка №'+newCard.id;
-    newCard.status = this.getBoolean();
+    newCard.status = Boolean(Math.round(Math.random()));
     return newCard;
   }
 
-  getBoolean()
+  deleteCard(id: any)
   {
-    let num = Math.random() * (1 - 0) + 0;
-    if (num == 1)
-      return true;
-    else
-      return false;
+    this.cardsArray.splice(id, 1);
   }
+
+  cardNum = 10;
+
+  addCard()
+  {
+    const init = this.initNewCard(this.cardNum+1);
+    this.cardsArray.push(init);
+    this.cardNum++;
+  }
+
 }
 
 @Directive() class Card
