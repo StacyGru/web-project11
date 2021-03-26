@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card" style="width: 18rem;" 
+        *ngFor="let item of cardsArray;">
+
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <button class="btn btn-primary">Удалить</button>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
