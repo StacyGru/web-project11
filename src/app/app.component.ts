@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,44 +6,64 @@ import { AfterViewInit, Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent
+{
+
   title = 'profect11';
-
-  // написать алгоритм который вызовет конструктор класса (со случайной генерацией статуса)
-  // рекомендуется создавать модели данных
-
-  // interface myDet
+ 
+  // ngOnInit()  // инициализация 10 карточек при открытии страницы
   // {
-  //   id: number;
-  //   name: string;
-  //   status: boolean;
-  // }
-  
-  // cardsArray : any;
-
-  // createArray(number = 10)
-  // {
-  //   for(var i = 1; i < number; i++)
+  //   for (let i = 1; i <= 10; i++) 
   //   {
-  //     // let item : myDet;
-  //     // this.item.id = i;
-  //     // this.item.name = 'Название';
-  //     // this.status = this.getBoolean();
-  //     this.cardsArray.push(i, 'Название', this.getBoolean());
+  //     const newCard = initNewCard(i);
+  //     this.cardsArray.push(newCard);
   //   }
+  //   console.log(this.cardsArray);
   // }
+}
 
-  // getBoolean()
-  // {
-  //   let num = Math.random() * (1 - 0) + 0;
-  //   if (num == 1)
-  //     return true;
-  //   else
-  //     return false;
-  // }
+class Card
+{
+  public id: number | undefined;
+  public name: string | undefined;
+  public status: boolean | undefined;
 
-  class Cards
+  cardsArray : Card[] = [];
+
+  ngOnInit()
   {
-    
+    for (let i = 1; i <= 10; i++) 
+    {
+      const init = this.initNewCard(i);
+      this.cardsArray.push(init);
+    }
+    console.log(this.cardsArray);
+  }
+
+  initNewCard(i: number)
+  {
+    let newCard = new Card();
+    newCard.id = i;
+    newCard.name = 'Карточка №'+newCard.id;
+    newCard.status = this.getBoolean();
+    return newCard;
+    // this.getCard(newCard.id, newCard.name, newCard.status);
+  }
+
+  // getCard(id: number, name: string, status: boolean)
+  // {
+  //   this.id = id;
+  //   this.name = name;
+  //   this.status = status;
+  //   return Card;
+  // }
+
+  getBoolean()
+  {
+    let num = Math.random() * (1 - 0) + 0;
+    if (num == 1)
+      return true;
+    else
+      return false;
   }
 }
